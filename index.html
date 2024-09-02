@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>DECIPHER</title>
+</head>
+<body>
+    <main class="main">
+        <header class="header">
+            <a href="#" class="logo">DECIPHER</a>
+            <nav class="navbar">
+                <a href="#" class="active">Home</a>
+                <a href="#">About</a>
+            </nav>
+        </header>
+        <div class="container">
+            <section class="decode-section">
+                <div class="decode-box">
+                    <h1>DECIPHER</h1>
+                    <div class="decode-header">
+                        <span>Decode the Word</span>
+                    </div>
+
+                    <p class="question-text">NHJYRDHFXBGHT</p>
+                    <input type="text" placeholder="Enter your text" id="given-answer">
+                    <div class="check">
+                        <button class="check-similarity">Check Similarity</button>
+                        <span class="percentage">Similarity: 0</span>
+                    </div>
+                    <div class="submit">
+                        <button class="hint">Hint</button>
+                        <button class="submit-btn">Submit</button>
+                        <span class="message">Message</span>
+                    </div>
+                    <div class="decode-footer">
+                        <span class="question-total">1 of 5 Questions</span>
+                        <button class="next-btn">Next</button>
+                    </div>
+                </div>
+                <div class="questions-list">
+                    <button class="question-btn">1</button>
+                </div>
+            </section>
+            <section class="home">
+                <div class="home-content">
+                    <h1>Decode The Words</h1>
+                    <p>Try decoding the given text by using your creativity. It is fun to play.</p>
+                    <button class="start-btn">Start</button>
+                </div>
+            </section>
+        </div>
+    </main>
+    <div class="popup-info">
+        <h2>Decode Guide</h2>
+        <span class="info">1. This game consists of only 5 questions (for now).</span>
+        <span class="info">2. The participant will have to decode the text from the given cipher text.</span>
+        <span class="info">3. You can check the similarity of your answer from the actual answer.</span>
+        <span class="info">4. Hint will be provided.</span>
+        <span class="info">5. If your answer is 100% similar then it is correct, or else it is wrong.</span>
+
+        <div class="btn-group">
+            <button class="info-btn exit-btn">Exit Game</button>
+            <a href="#" class="info-btn continue-btn">Continue</a>
+        </div>
+    </div>
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
