@@ -229,8 +229,10 @@ body{
 
 .submit{
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    margin-top: 20px;
 }
 
 .submit .submit-btn {
@@ -257,6 +259,26 @@ body{
     height: 50px;
     border-radius: 6px;
     transition: 0.3s ease-in-out;
+    visibility: hidden;
+}
+
+.clue-btn{
+    display: block;
+    background-color: transparent;
+    color: white;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.clue{
+    margin-left: 20px;
+    visibility: hidden;
 }
 
 .submit .hint:hover{
@@ -342,6 +364,14 @@ body{
 #given-answer:hover{
     background: white;
     color: #09001d;
+}
+
+.answer{
+    display: block; /* or inline-block */
+    visibility: visible;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 20px;
 }
 
 .check{
