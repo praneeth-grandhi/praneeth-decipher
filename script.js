@@ -7,6 +7,8 @@ const decodeSection = document.querySelector('.decode-section');
 const decodeBox = document.querySelector('.decode-box');
 const checkSimilarity = document.querySelector('.check-similarity');
 const questionsList = document.querySelector('.questions-list');
+let clueBtn = document.querySelector('.clue-btn');
+let clueText = document.querySelector('.clue');
 
 startBtn.onclick = () => {
     popupInfo.classList.add('active');
@@ -46,6 +48,7 @@ function showQuestions(index) {
     const questionText = document.querySelector('.question-text');
     const currentQuestion = questions[index];
     const cipher = randomCaesarCipher(currentQuestion.question);
+    const answerText = document.querySelector('.answer');
     const clue = currentQuestion.clue;
     const answer = currentQuestion.answer;
     const similarityElement = document.querySelector('.percentage');
@@ -53,13 +56,20 @@ function showQuestions(index) {
 
     if (currentQuestion) {
         questionText.textContent = `${currentQuestion.number}. ${cipher}`;
-        hint.onclick = () => {
-            Swal.fire({
-                title: "Hint?",
-                text: `${clue}`, // Pass the current question's clue here
-                icon: "question"
-            });
-        }
+        // hint.onclick = () => {
+        //     Swal.fire({
+        //         title: "Hint?",
+        //         text: `${clue}`, // Pass the current question's clue here
+        //         icon: "question"
+        //     });
+        // }
+
+        clueBtn.addEventListener("click", () => {
+            clueText.textContent = clue; // Assuming currentQuestion.clue contains the clue text
+            clueText.style.display = 'block'; // Change the display property to 'block' or 'inline-block'
+            clueText.style.visibility = 'visible';
+        });
+
         // Remove existing buttons
         const buttons = document.querySelectorAll('.question-btn');
         buttons.forEach(button => button.remove());
@@ -74,22 +84,26 @@ function showQuestions(index) {
             }
             questionsList.appendChild(btn);
         }
-        checkSimilarity.onclick = () => {
-            let givenAnswer = document.getElementById("given-answer").value;
-            const similarity = calculateSimilarity(answer, givenAnswer);
-            similarityElement.textContent = `Similarity: ${similarity}%`;
-        }
+        // checkSimilarity.onclick = () => {
+        //     let givenAnswer = document.getElementById("given-answer").value;
+        //     const similarity = calculateSimilarity(answer, givenAnswer);
+        //     similarityElement.textContent = `Similarity: ${similarity}%`;
+        // }
 
         submitBtn.onclick = () => {
-            let givenAnswer = document.getElementById("given-answer").value;
-            const similarity = calculateSimilarity(answer, givenAnswer);
-            if(similarity==100){
-                messageElement.textContent = "Correct!";
-                messageElement.style.color = "green";
-            } else {
-                messageElement.textContent = "Wrong!";
-                messageElement.style.color = "red";
-            }
+            // let givenAnswer = document.getElementById("given-answer").value;
+            // const similarity = calculateSimilarity(answer, givenAnswer);
+            // if(similarity==100){
+            //     messageElement.textContent = "Correct!";
+            //     messageElement.style.color = "green";
+            // } else {
+            //     messageElement.textContent = "Wrong!";
+            //     messageElement.style.color = "red";
+            // }
+            // givenAnswer.value = ""; // Clear the input field for the next answer
+            answerText.textContent = answer;
+            answerText.style.display = 'block'; // Change the display property to 'block' or 'inline-block'
+            answerText.style.visibility = 'visible';
         }
         
     } else {
